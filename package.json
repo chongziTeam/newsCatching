@@ -1,0 +1,27 @@
+{
+  "name": "news_catch",
+  "version": "1.0.0",
+  "description": "门户网站咨讯爬取",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chongziTeam/newsCatching.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chongziTeam/newsCatching/issues"
+  },
+  "homepage": "https://github.com/chongziTeam/newsCatching#readme",
+  "devDependencies": {
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
+    "mongoose": "^4.6.4",
+    "scraperjs": "^1.2.0"
+  }
+}
