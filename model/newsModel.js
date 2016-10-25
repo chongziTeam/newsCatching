@@ -5,7 +5,8 @@ var NewsSchema = new Schema({
   title:String,
   img:String,
   link:String,
-  zhihuId:String
+  zhihuId:String,
+  tengxunId: String,
 })
 
 module.exports = mongoose.model('News', NewsSchema);
