@@ -2,7 +2,7 @@ var News = require('../model/newsModel');
 var scraperjs = require('scraperjs');
 exports.getNewsFromZhihu=function(){
   zhihuNews(function(news){
-    console.log(news)
+    // console.log(news)
     news.forEach(function(n){
       var newsMsg = {
           title:n.news_title,
@@ -11,8 +11,8 @@ exports.getNewsFromZhihu=function(){
           zhihuId:n.news_id
       }
       News.create(newsMsg)
+    })
   })
-})
 }
 
 function zhihuNews(cb){
