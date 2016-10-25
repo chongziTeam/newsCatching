@@ -1,5 +1,5 @@
 {
-  "name": "cnblog Spider",
+  "name": "cnblog_Spider",
   "version": "1.0.0",
   "description": "cnblog spider ",
   "main": "index.js",
@@ -9,10 +9,16 @@
     "eventproxy": "^0.3.4",
     "superagent": "^1.4.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
+    "mongoose": "^4.6.5",
+    "request": "^2.75.0",
+    "scraperjs": "^1.2.0"
+  },
   "scripts": {
-    "test": "node index",
-    "start": "node server.js"
+    "start": "gulp server"
   },
   "repository": {
     "type": "git",
