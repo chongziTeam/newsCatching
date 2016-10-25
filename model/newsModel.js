@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var db = mongoose.connection;
+
 
 var newsSchema = new Schema({
   title:String,
@@ -10,4 +10,4 @@ var newsSchema = new Schema({
   tengxunId:String,
 })
 
-module.export = mongoose.model('News', newsSchema);
+module.exports = mongoose.model('News', newsSchema);
