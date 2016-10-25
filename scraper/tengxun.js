@@ -12,9 +12,7 @@ var ep = new eventproxy();
 
 var catchFirstUrl = 'http://news.qq.com/',  //入口页面
     deleteRepeat = {},  //去重哈希数组
-    catchDate = [], //存放爬取数据
-    startDate = new Date(), //开始时间
-    endDate = false;  //结束时间
+    catchDate = [];
 
 function request(url, callBack) {
   superagent.get(url)
@@ -35,28 +33,29 @@ function start(callBack){
 
       var curPages = $(".Q-tpWrap");
 
-    for(var i = 0 ; i < curPages.length; i++){
+    for(var i = 0; i < curPages.length; i++){
       var obj = {}
-      var articleUrl = curPages.eq(i).find($('.linkto')).attr('href');
-        
-      if (articleUrl != undefined) {
-        var articleTitle = curPages.eq(i).find($('.linkto')).text(),
+      var articleUrl = curPages.eq(i).find($('.linkto')).attr('href'),
+          articleTitle = curPages.eq(i).find($('.linkto')).text(),
           articleImg = curPages.eq(i).find($('.picto')).attr('src');
-          articleIds = articleUrl.split('/'),
+        
+      if (articleUrl == undefined || articleTitle == undefined || articleImg == undefined) {
+        continue;
+      }
+      var articleIds = articleUrl.split('/'),
           atrcleId = articleIds[articleIds.length - 1].split(".")[0];
 
-        obj = {
-          newsTitle: articleTitle,
-          newsImg: articleImg,
-          newsUrl: articleUrl,
-          newsId: atrcleId,
-        };
+      obj = {
+        newsTitle: articleTitle,
+        newsImg: articleImg,
+        newsUrl: articleUrl,
+        newsId: atrcleId,
+      };
 
-        catchDate.push(obj);
-        callBack(catchDate);
-      }
+      catchDate.push(obj);
+      callBack(catchDate);
     }
-    // res.render('tengxun',{news: catchDate});
+    console.log(catchDate);
   })
 }
 
