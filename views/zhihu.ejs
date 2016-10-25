@@ -1,3 +1,6 @@
 <% news.forEach(function(n){%>
- <h4><%= n.news_title%></h4>
+ <a href=<%= n.link %>>
+  <img src=<%= n.img %>>
+  <h4><%= n.title%></h4>
+ </a> 
 <% })%>

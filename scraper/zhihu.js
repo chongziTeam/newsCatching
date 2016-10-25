@@ -1,28 +1,21 @@
 var News = require('../model/newsModel');
 var scraperjs = require('scraperjs');
-// exports.getNewsFromZhihu=function(){
-//   zhihuNews((news) =>{
-//     news.forEach((n) =>{
-//       News.findOneAndUpdate({
-//         title:n.news_title
-//       }, {
-//         $set:{
-//           title:n.news_title,
-//           img:n.news_img,
-//           link:n.news_link,
-//           zhihuId:n.news_id
-//         }
-//       }, {
-//          new:true,
-//          upset:true
-//       }, (err, n)=>{
-//         console.log(n);
-//       })
-//     })
-//   })
-// }
+exports.getNewsFromZhihu=function(){
+  zhihuNews(function(news){
+    console.log(news)
+    news.forEach(function(n){
+      var newsMsg = {
+          title:n.news_title,
+          img:n.news_img,
+          link:n.news_link,
+          zhihuId:n.news_id
+      }
+      News.create(newsMsg)
+  })
+})
+}
 
-exports.getNewsFromZhihu=function(req, res){
+function zhihuNews(cb){
   scraperjs.StaticScraper.create('http://daily.zhihu.com/')
     .scrape(function($) {
         return $(".wrap").map(function() {  
@@ -37,7 +30,7 @@ exports.getNewsFromZhihu=function(req, res){
           }).get();
     })
     .then( (news) => {  
-      console.log(news)   
-      res.render('zhihu', {news:news})
+      console.log('news')   
+      cb(news);
     })
 }
