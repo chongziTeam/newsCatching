@@ -10,6 +10,7 @@
     "superagent": "^1.4.0"
   },
   "devDependencies": {
+    "ejs": "^2.5.2",
     "express": "^4.14.0",
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.2.1",
@@ -18,7 +19,7 @@
     "scraperjs": "^1.2.0"
   },
   "scripts": {
-    "start": "gulp server"
+    "start": "node server"
   },
   "repository": {
     "type": "git",
