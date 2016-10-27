@@ -1,16 +1,25 @@
 var News = require('../model/newsModel');
 var scraperjs = require('scraperjs');
-exports.getNewsFromZhihu=function(){
-  zhihuNews(function(news){
-    // console.log(news)
+exports.getNewsFromZhihus=function(){
+  zhihuNews(function(news){ 
     news.forEach(function(n){
       var newsMsg = {
           title:n.news_title,
           img:n.news_img,
           link:n.news_link,
-          zhihuId:n.news_id
-      }
-      News.create(newsMsg)
+          zhihuId:n.news_id,
+      };
+
+        News.find({title:n.news_title})
+            .exec()
+            .then((doc) =>{
+              if(doc.length == 0){
+                console.log('zhihu还未存入数据库')
+                News.create(newsMsg);
+              }else{
+                console.log('zhihu数据库中已经存在此条记录', doc);
+              }
+            })
     })
   })
 }
@@ -25,12 +34,13 @@ function zhihuNews(cb){
                 news_title:$(this).find('.box a .title').text(),
                 news_img: $(this).find('.box a img').attr('src'),
                 news_link: news_link,
-                news_id: news_id
+                news_id: news_id,
               }     
           }).get();
     })
     .then( (news) => {  
-      console.log('news')   
+      console.log('zhihunews');   
       cb(news);
+      // res.render('zhihu', {news:news});
     })
 }

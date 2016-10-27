@@ -15,8 +15,10 @@
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.2.1",
     "mongoose": "^4.6.5",
+    "node-schedule": "^1.2.0",
     "request": "^2.75.0",
-    "scraperjs": "^1.2.0"
+    "scraperjs": "^1.2.0",
+    "superagent-charset": "^1.1.1"
   },
   "scripts": {
     "start": "node server"

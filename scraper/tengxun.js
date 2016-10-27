@@ -3,7 +3,7 @@ var News = require('../model/newsModel');
 var http = require("http"),
     url = require("url"),
     // 使用superagent-charset代替superagent可解决乱码问题
-    superagent = require("superagent-charset"),
+    superagent = require("superagent"),
     cheerio = require("cheerio"),
     async = require("async"),
     eventproxy = require('eventproxy');
@@ -16,7 +16,7 @@ var catchFirstUrl = 'http://news.qq.com/',  //入口页面
 
 function request(url, callBack) {
   superagent.get(url)
-    .charset('gbk')
+    
     .end(function (err, pres) {
       if (err) {
         console.log(err);
@@ -55,7 +55,7 @@ function start(callBack){
       catchDate.push(obj);
       callBack(catchDate);
     }
-    console.log(catchDate);
+    console.log('catchDate');
   })
 }
 
@@ -66,34 +66,23 @@ function tengxunNews(req, res) {
         title:item.newsTitle,
         img:item.newsImg,
         link:item.newsUrl,
+        zhihuId:'0',
         tengxunId: item.newsId,
       }
-      News.create(dbObj);
+      News.find({title:item.newsTitle})
+          .exec()
+          .then((doc) =>{
+            if(doc.length == 0){
+              console.log('teng还未插入')
+              News.create(dbObj)
+            }else{
+              console.log('teng已插入')
+            }
+          })
     });
   })
 }
 
 exports.tengxunNews = tengxunNews; 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
