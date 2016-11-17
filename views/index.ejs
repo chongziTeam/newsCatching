@@ -1,8 +1,22 @@
 <%- include header %>
   <% news.forEach(function(n){%>
-   <a href=<%= n.link %>>
-    <img src=<%= n.img %>>
-    <h4><%= n.title%></h4>
-   </a> 
+   <div class="box container">
+     <div class='box-left'>
+     	<img src=<%= n.img %>>
+     	<div class='box-inner'>
+     		<h4>
+     	 	<a href=<%= n.link %>>
+     			<%= n.title%>
+     	 	</a>
+        	</h4>
+        	<time><%= n.time %></time>
+        </div>	
+      </div>
+      <div class="btn">
+        <button class="ui button">置顶</button>
+        <button class="ui button">取消置顶</button>
+      </div>  		
+     </div>
+   </div> 
   <% })%>
 <%- include footer %>  
