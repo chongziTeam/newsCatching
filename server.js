@@ -1,6 +1,7 @@
 var express = require('express');
 var path = require('path'); 
 var mongoose = require('mongoose');
+var phantomjs = require('phantomjs');
 var dbConnection = 'mongodb://localhost/news';
 mongoose.connect(dbConnection);
 var port = process.env.PORT || 8080;

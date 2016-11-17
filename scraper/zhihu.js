@@ -14,10 +14,10 @@ exports.getNewsFromZhihus=function(){
             .exec()
             .then((doc) =>{
               if(doc.length == 0){
-                console.log('zhihu还未存入数据库')
+                //console.log('zhihu还未存入数据库')
                 News.create(newsMsg);
               }else{
-                console.log('zhihu数据库中已经存在此条记录', doc);
+                //console.log('zhihu数据库中已经存在此条记录', doc);
               }
             })
     })

@@ -1,7 +1,7 @@
 {
-  "name": "cnblog_Spider",
+  "name": "Spider",
   "version": "1.0.0",
-  "description": "cnblog spider ",
+  "description": "spider ",
   "main": "index.js",
   "dependencies": {
     "async": "^1.5.0",
@@ -14,14 +14,17 @@
     "express": "^4.14.0",
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.2.1",
+    "iconv-lite": "^0.4.13",
     "mongoose": "^4.6.5",
     "node-schedule": "^1.2.0",
+    "phantomjs": "^2.1.7",
     "request": "^2.75.0",
     "scraperjs": "^1.2.0",
     "superagent-charset": "^1.1.1"
   },
   "scripts": {
-    "start": "node server"
+    "build": "phantomjs ./scraper/toutiao.js",
+    "start": "gulp server && build" 
   },
   "repository": {
     "type": "git",
