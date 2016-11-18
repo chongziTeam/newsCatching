@@ -9,6 +9,7 @@ var NewsSchema = new Schema({
   id:String,
   typeTag:String,
   time:String,
+  isTop:Boolean,
 })
 
 module.exports = mongoose.model('News', NewsSchema);

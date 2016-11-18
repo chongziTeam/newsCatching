@@ -19,11 +19,13 @@ page.onLoadFinished = function(){
 };
 
 page.open('http://learning.sohu.com/xiaoxueedu/index.shtml',function(){
-  page.evaluate(function(){
-    var table = document.getElementsByTagName('table')[2];
-    var td = table.getElementsByTagName('a')[2];
-    td.click();
-  })
+  setTimeout(function(){
+    page.evaluate(function(){
+      var table = document.getElementsByTagName('table')[2];
+      var td = table.getElementsByTagName('a')[2];
+      td.click();
+    })
+  }, 1000)
   //page.render('sohu'+count+'.png');
 });
 
