@@ -1,0 +1,54 @@
+img{
+	width:100px;
+	height:100px;
+	padding:10px;
+}
+.container{
+	width: 100%;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    transition: all .3s ease;
+}
+.container:hover{
+	background-color: #EAF8FE;
+}
+.btn{
+	padding-right:10%;
+}
+.box-left{
+	margin-left: 20px;
+	display: flex;
+	flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.ui,.button{
+	background-color: #2db7f5 !important;
+	color:#fff !important;
+} 
+time{
+	font-size: 12px;
+	color: #ccc;
+}
+.box:before{
+	content: '置顶';
+    display: inline-block;
+    background-color: red;
+    width: 80px;
+    height: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    transform: rotate(-30deg);
+    border-radius: 5px;
+    position: absolute;
+	left: -24px;
+	-webkit-clip-path: polygon(17% 0%, 52% -6%, 102% 100%, 0% 100%);
+    clip-path: polygon(17% 0%, 52% -6%, 102% 100%, 0% 100%);
+    box-shadow: 3px 4px 3px -3px #000;
+} 

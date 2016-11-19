@@ -6,6 +6,7 @@ var dbConnection = 'mongodb://localhost/news';
 mongoose.connect(dbConnection);
 var port = process.env.PORT || 8080;
 var app = express();
+app.use(express.static(path.join(__dirname, 'public')))
 app.set('view engine', 'ejs');
 app.set('views', './views');
 require('./router')(app);

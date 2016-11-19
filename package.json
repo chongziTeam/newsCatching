@@ -16,6 +16,7 @@
     "gulp-nodemon": "^2.2.1",
     "iconv-lite": "^0.4.13",
     "mongoose": "^4.6.5",
+    "node-fetch": "^1.6.3",
     "node-schedule": "^1.2.0",
     "phantomjs": "^2.1.7",
     "request": "^2.75.0",
@@ -24,16 +25,12 @@
   },
   "scripts": {
     "build": "phantomjs ./scraper/toutiao.js",
-    "start": "gulp server && build" 
+    "start": "gulp server && build"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/chokcoco/cnblogReptile.git"
+    "url": "https://github.com/dannisi/newsCatching.git"
   },
-  "author": "Coco",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/chokcoco/cnblogReptile/issues"
-  },
-  "homepage": "https://github.com/chokcoco/cnblogReptile"
+  "author": "dannisi",
+  "license": "ISC"
 }

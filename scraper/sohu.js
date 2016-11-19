@@ -22,6 +22,8 @@ exports.getNewsFromsohu = function (){
           let newsMsg = newList[i].split('||');
           let titles = newsMsg[0].split('null');
           let title = titles[titles.length-1];
+          //let dateString = newsMsg[3].replace('年','-').replace('月','-').replace('日',' ') || '';
+        // let date = new Date(dateString);
           if(newsMsg[1]){
             let ids = newsMsg[1].split('/')[4];
             let id = ids.split('.')[0];
@@ -35,7 +37,7 @@ exports.getNewsFromsohu = function (){
             newsArr.push(newsObj);
           }        
         }
-        console.log('yyyy', newsArr.length)
+        //console.log('yyyy', newsArr.length)
         resolve(newsArr)
       }
       console.log('read file successfully')
@@ -53,7 +55,6 @@ exports.getNewsFromsohu = function (){
           link:n.link,
           time:n.publishTime,
           id:n.id,
-          isTop:false,
         };
         News.find({id:n.id})
           .exec()
