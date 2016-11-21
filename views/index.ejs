@@ -1,6 +1,8 @@
 <%- include header %>
   <% news.forEach(function(n){%>
-   <div class="box container">
+  	<% if(n.isTop) {%>
+
+  	<div class="container box">
      <div class='box-left'>
      	<img src=<%= n.img %>>
      	<div class='box-inner'>
@@ -13,11 +15,34 @@
         </div>	
       </div>
       <div class="btn">
-        <button class="ui button">置顶</button>
-        <button class="ui button">取消置顶</button>
-        <button class="ui button">删除</button>
+        <button class="ui button toTop" data-top=<%= n.id %>>置顶</button>
+        <button class="ui button cancelTop toTops" data-cancelTop=<%= n.id %>>取消置顶</button>
+        <button class="ui button del" data-del=<%= n.id %>>删除</button>
+      </div>  		
+     </div>
+   </div>
+  	<%} else{%>
+  	
+   <div class="container">
+     <div class='box-left'>
+     	<img src=<%= n.img %>>
+     	<div class='box-inner'>
+     		<h4>
+     	 	<a href=<%= n.link %>>
+     			<%= n.title%>
+     	 	</a>
+        	</h4>
+        	<time><%= n.time %></time>
+        </div>	
+      </div>
+      <div class="btn">
+        <button class="ui button toTop toTops" data-top=<%= n.id %>>置顶</button>
+        <button class="ui button cancelTop" data-cancelTop=<%= n.id %>>取消置顶</button>
+        <button class="ui button del" data-del=<%= n.id %>>删除</button>
       </div>  		
      </div>
    </div> 
-  <% })%>
+   <%}%>
+  <%})%>
+
 <%- include footer %>  

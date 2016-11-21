@@ -8,7 +8,7 @@ var port = process.env.PORT || 8080;
 var app = express();
 app.use(express.static(path.join(__dirname, 'public')))
 app.set('view engine', 'ejs');
-app.set('views', './views');
+app.set('views', path.join(__dirname, 'views'));
 require('./router')(app);
 app.listen(port, function(){
     console.log(`Express server listening on port ${port}`);

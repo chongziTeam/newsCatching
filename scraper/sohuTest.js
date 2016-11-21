@@ -52,11 +52,13 @@ function getMsg(){
       for(var i=0, len=box.length; i<len; i++){
       var title_box = box[i].querySelector('h3 .content-title a');
       var img_box = box[i].querySelector('.content-pic a img') || '';
-      var time = box[i].querySelector('.publish-footer .time').textContent;
+      var timeString = box[i].querySelector('.publish-footer .time').textContent;
+      var times = timeString.replace('年','-').replace('月','-').replace('日',' ');
+      //var time = Date.parse(new Date(date));
       var title = title_box.text;
       var title_href = title_box.href;
       var img = img_box.src || 'http://pic.58pic.com/58pic/15/49/22/44F58PICv5G_1024.png';
-      newsMsgArrTwo += title +'||' + title_href + '||' + img + '||' + time + '&&';
+      newsMsgArrTwo += title +'||' + title_href + '||' + img + '||' + times + '&&';
     }; 
       var table = document.getElementsByTagName('table')[2];
       var td = table.getElementsByTagName('a')[2];

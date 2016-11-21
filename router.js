@@ -12,6 +12,7 @@ module.exports = function(app){
   //获取信息列表
   app.get('/api/getNews', (req, res) =>{
     News.find()
+      .sort({'isTop':-1, time:-1})
       .exec()
       .then((doc) =>{
       res.json({code:200, data:doc})
@@ -25,6 +26,7 @@ module.exports = function(app){
     var newsArr = [];
     News.find()
       .limit(20)
+      .sort({'isTop':-1, time:-1})
       .exec()
       .then((doc) =>{
         res.json({code:200, data:doc});
@@ -39,6 +41,8 @@ module.exports = function(app){
       .exec()
       .then((doc) =>{
           res.json({code:200, message:'操作成功', data:doc})       
+      }, (err) =>{
+        res.json({code:10001, message:err})
       })
   });
 
@@ -54,7 +58,7 @@ module.exports = function(app){
         if(doc){
           res.json({code:200, message:'删除成功',data:doc})
         }else{
-          res.json({code:10001, message:'删除失败'})
+          res.json({code:10001, message:'该文章已不存在'})
         }
       })
   })

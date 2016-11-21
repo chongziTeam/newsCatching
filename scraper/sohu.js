@@ -26,18 +26,20 @@ exports.getNewsFromsohu = function (){
         // let date = new Date(dateString);
           if(newsMsg[1]){
             let ids = newsMsg[1].split('/')[4];
-            let id = ids.split('.')[0];
+            let id = ids.split('.')[0]; 
+            let time = Date.parse(new Date(newsMsg[3])) / 1000;
             var newsObj = {
               title:title,
               link:newsMsg[1],
               title_href:newsMsg[2],
-              publishTime:newsMsg[3],
+              publishTime:time,
               id:id
             };
+            //console.log('lllll', newsObj.publishTime)
             newsArr.push(newsObj);
           }        
         }
-        //console.log('yyyy', newsArr.length)
+        //console.log('yyyy', )
         resolve(newsArr)
       }
       console.log('read file successfully')
