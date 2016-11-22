@@ -22,12 +22,14 @@ exports.getNewsFromsohu = function (){
           let newsMsg = newList[i].split('||');
           let titles = newsMsg[0].split('null');
           let title = titles[titles.length-1];
-          //let dateString = newsMsg[3].replace('年','-').replace('月','-').replace('日',' ') || '';
-        // let date = new Date(dateString);
           if(newsMsg[1]){
             let ids = newsMsg[1].split('/')[4];
+            console.log('ppp', ids)
+            if(!ids){
+              return;
+            }
             let id = ids.split('.')[0]; 
-            let time = Date.parse(new Date(newsMsg[3])) / 1000;
+            let time = newsMsg[3];
             var newsObj = {
               title:title,
               link:newsMsg[1],
@@ -39,7 +41,6 @@ exports.getNewsFromsohu = function (){
             newsArr.push(newsObj);
           }        
         }
-        //console.log('yyyy', )
         resolve(newsArr)
       }
       console.log('read file successfully')

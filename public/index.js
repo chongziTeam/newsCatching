@@ -39,14 +39,12 @@ $(function(){
           url:'/api/toTop?id='+id+'&isTop='+true,
           success:function(msg){
             if(msg.code == 200){
-              //var box = container[i];
-              //container.splice(i);
-              //container.unshift(container[i]);
               
               container[i].classList.add('box');
               toTop[i].classList.remove('toTops');
               cancelTop[i].classList.add('toTops');
               alert(msg.message)
+              location.reload();
             }
           },
           error:function(err){
@@ -68,7 +66,8 @@ $(function(){
               container[i].classList.remove('box');
               toTop[i].classList.add('toTops');
               cancelTop[i].classList.remove('toTops');
-              alert(msg.message)
+              alert(msg.message);
+              location.reload();
             }
           },
           error:function(err){
