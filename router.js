@@ -15,9 +15,13 @@ module.exports = function(app){
       .sort({'isTop':-1, time:-1})
       .exec()
       .then((doc) =>{
-      res.json({code:200, data:doc})
+        if(doc.length == 0 || doc == null){
+          res.json({code:403, message:'暂无数据'})
+        }else{
+          res.json({code:200, data:doc})
+        }     
     }, (err) =>{
-      res.json({code:403, data:[], message:'暂无数据'})
+      res.json({code:100001, data:[], message:err})
     })
   });
 
@@ -25,8 +29,8 @@ module.exports = function(app){
   app.get('/api/twenty', (req, res) =>{
     var newsArr = [];
     News.find()
-      .limit(20)
       .sort({'isTop':-1, time:-1})
+      .limit(20)     
       .exec()
       .then((doc) =>{
         res.json({code:200, data:doc});
@@ -58,8 +62,10 @@ module.exports = function(app){
         if(doc){
           res.json({code:200, message:'删除成功',data:doc})
         }else{
-          res.json({code:10001, message:'该文章已不存在'})
+          res.json({code:403, message:'该文章已不存在'})
         }
+      }, (err) =>{
+        res.json({code:600, message:err})
       })
   })
 }
