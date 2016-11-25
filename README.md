@@ -10,7 +10,7 @@
 -- 下载phantomjs 并设置它的全局path
 - npm install
 - gulp server运行(可检测文件改变，无需重新启动)
-- npm run build 开启爬虫爬取数据
+- npm run build 开启爬虫爬取数据(或者下面这种方式)
 - 进入到scraper目录中 phantomjs sohuScraper.js
 - 打开 http://localhost:8080 （第一次可能需要刷新两次，才能看到数据列表，正在紧急处理中...）
 
