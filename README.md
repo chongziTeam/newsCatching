@@ -18,4 +18,4 @@
 目前是爬数据和存数据需要两步操作，正在寻找解决方案，简化操作
 
 ###示例展示
-![新闻列表](https://raw.githubusercontent.com/dannisi/newsCatching/screenShots/show.jpg)
+![新闻列表](https://github.com/chongziTeam/newsCatching/blob/master/screenShots/show.jpg)
