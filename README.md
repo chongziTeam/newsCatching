@@ -1,6 +1,6 @@
 # 新闻信息爬取
 
-使用phantomjs能够模仿浏览器的特性，如加载页面，点击事件等爬取搜狐教育的3页数据列表（通过代码控制），因为目前没有很好地处理使用命令行来爬取数据，现在的爬数据方式是通过- phantomjs sohuScraper.js 来爬，并存在data的一个文件中。（首先确保本地已经安装了phantomjs,并设置它的全局path,这样就能直接使用phantomjs命令).
+使用phantomjs能够模仿浏览器的特性，如加载页面，点击事件等爬取搜狐教育的3页数据列表（通过代码控制），（首先确保本地已经安装了phantomjs,并设置它的全局path,这样就能直接使用phantomjs命令).
 
 使用mongodb存放数据，express+ejs展示数据
 
