@@ -24,7 +24,7 @@ exports.getNewsFromsohu = function (){
           let title = titles[titles.length-1];
           if(newsMsg[1]){
             let ids = newsMsg[1].split('/')[4];
-            console.log('ppp', ids)
+            //console.log('ppp', ids)
             if(!ids){
               return;
             }
