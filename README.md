@@ -7,9 +7,10 @@
 在router文件中有写一些操作的- api, 如置顶，删除，并按时间排序
 
 ### 使用
-- 下载phantomjs 并设置它的全局path
+-- 下载phantomjs 并设置它的全局path
 - npm install
-- gulp server运行
+- gulp server运行(可检测文件改变，无需重新启动)
+- npm run build 开启爬虫爬取数据
 - 进入到scraper目录中 phantomjs sohuScraper.js
 - 打开 http://localhost:8080 （第一次可能需要刷新两次，才能看到数据列表，正在紧急处理中...）
 
@@ -18,4 +19,4 @@
 目前是爬数据和存数据需要两步操作，正在寻找解决方案，简化操作
 
 ###示例展示
-![新闻列表](https://raw.githubusercontent.com/dannisi/newsCatching/screenShots/show.jpg)
+![新闻列表](https://github.com/chongziTeam/newsCatching/blob/master/screenShots/show.jpg)

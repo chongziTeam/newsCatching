@@ -2,7 +2,7 @@ var News = require('../model/newsModel');
 var scraperjs = require('scraperjs');
 var fs = require('fs');
 var stream = require('stream');
-const path = './scraper/data/sohu.txt';
+const path = './data/sohu.txt';
 var rs = fs.createReadStream(path);
 var newsStr = '', newsArr = [];
 
