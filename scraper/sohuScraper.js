@@ -1,9 +1,9 @@
 var page = require('webpage').create(),
     pageMsg = '',
     pageStr = '',
-    count = 0;
-var mypath = '../data/sohu.txt';
-var fs = require('fs');
+    count = 0,
+    mypath = './data/sohu.txt',
+    fs = require('fs');
 loadInProgress = false;
 phantom.outputEncoding="gbk";
 
@@ -58,7 +58,7 @@ function getMsg(){
         var title = title_box.text;
         var title_href = title_box.href;
         var img = img_box.src || 'http://pic.58pic.com/58pic/15/49/22/44F58PICv5G_1024.png';
-        newsMsgArrTwo += title +'||' + title_href + '||' + img + '||' + times + '&&';
+        newsMsgArrTwo += `title||title_href||img||times&&`;
       }; 
       var table = document.getElementsByTagName('table')[2];
       var td = table.getElementsByTagName('a')[2];

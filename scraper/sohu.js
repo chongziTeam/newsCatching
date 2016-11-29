@@ -1,10 +1,10 @@
-var News = require('../model/newsModel');
-var scraperjs = require('scraperjs');
-var fs = require('fs');
-var stream = require('stream');
+const News = require('../model/newsModel');
+const fs = require('fs');
+// const stream = require('stream');
 const path = './data/sohu.txt';
-var rs = fs.createReadStream(path);
-var newsStr = '', newsArr = [];
+const rs = fs.createReadStream(path);
+var newsStr = '',
+    newsArr = [];
 
 exports.getNewsFromsohu = function (){
   new Promise((resolve, reject) =>{
@@ -13,9 +13,9 @@ exports.getNewsFromsohu = function (){
     });
 
     rs.on('end', () =>{
-      var newList = [];
+      let newList = [];
       newList = newsStr.split('&&');
-      for(var i=0, len=newList.length; i<len; i++){
+      for(let i=0, len=newList.length; i<len; i++){
         if(!newList[i]){
           return;
         }else{
@@ -30,7 +30,7 @@ exports.getNewsFromsohu = function (){
             }
             let id = ids.split('.')[0]; 
             let time = newsMsg[3];
-            var newsObj = {
+            let newsObj = {
               title:title,
               link:newsMsg[1],
               title_href:newsMsg[2],

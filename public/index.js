@@ -8,9 +8,7 @@ $(function(){
       var id = delBtn[i].getAttribute('data-del');
       var container = $('.container')[i];
       delBtn[i].onclick=function(){
-        var tag = event.target.elements
-        console.log('oooooo', tag)
-        //console.log('lll', id)
+        var tag = event.target.elements;
         $.ajax({
           type:'get',
           dataType:'json',
